@@ -5,15 +5,15 @@ import {UserContext} from "./contexts/userContext";
 
 export default function NavBar() {
     const {loginStatus} = useContext(AuthContext)
-    const {user} = useContext(UserContext)
+    const {loggedinuser} = useContext(UserContext);
 
-    console.log(user)
+    console.log(loggedinuser)
 
     return (
         <>
             <nav className={'Nav'}>
                 <Link to={'/'} className={'SiteTitle'}>TDAMS 🍔🍟🌭</Link>
-                <h1>{(loginStatus === 1) ? user.uname : ""}</h1>
+                <h1>{(loginStatus === 1) ? loggedinuser.role : ""}</h1>
                 <ul>
                     <li>
                         <Link to={'/all-products'}>Stock</Link>

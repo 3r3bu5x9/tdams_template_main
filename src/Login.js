@@ -27,7 +27,10 @@ export default function Login() {
         for (const u of userlist) {
             if (u.uname === user.uname && u.passwd === user.passwd) {
                 console.log(u);
-                AddUser(u);
+                axios.get("http://localhost:8080/user/" + u.uid)
+                    .then((res) => {
+                        AddUser(res.data)
+                    })
                 break;
             }
         }
